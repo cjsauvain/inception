@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS WordPress;
+USE WordPress;
+CREATE USER IF NOT EXISTS 'champi'@'localhost' IDENTIFIED BY 'Champi123-';
+CREATE USER IF NOT EXISTS 'regular'@'localhost' IDENTIFIED BY 'Regular123-';
