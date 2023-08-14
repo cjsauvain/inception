@@ -1,7 +1,7 @@
 FROM debian:bullseye-slim
 
-RUN apt update -y && apt upgrade -y && apt install mysql-server -y && mysql_secure_installation
+RUN apt update -y && apt upgrade -y && apt install mariadb-server && ./mysql_secure
 
-EXPOSE 3306
+#EXPOSE 3306
 
 #ENTRYPOINT ["nginx", "-g", "daemon off;"]
