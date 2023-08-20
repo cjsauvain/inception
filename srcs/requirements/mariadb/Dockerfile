@@ -1,7 +1,11 @@
 FROM debian:bullseye-slim
 
-RUN apt update -y && apt upgrade -y && apt install mariadb-server && ./mysql_secure
+RUN apt update -y && apt upgrade -y && apt install mariadb-server
+
+WORKDIR /etc/
+
+COPY ./mariadb_conf.sh .
 
 #EXPOSE 3306
 
-#ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["mariadb_conf.sh"]

@@ -1,9 +1,0 @@
-mysql_secure_installation << EOF
-Bonjour456-
-n
-n
-Y
-Y
-Y
-Y
-EOF
