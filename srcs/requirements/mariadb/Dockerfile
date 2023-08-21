@@ -6,6 +6,6 @@ WORKDIR /etc/
 
 COPY ./mariadb_conf.sh .
 
-#EXPOSE 3306
+EXPOSE 3306
 
-ENTRYPOINT ["mariadb_conf.sh"]
+ENTRYPOINT ["sh mariadb_conf.sh"]
