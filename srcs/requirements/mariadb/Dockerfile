@@ -1,10 +1,8 @@
 FROM debian:bullseye-slim
 
-RUN apt update -y && apt upgrade -y && apt install mariadb-server
+RUN apt update -y && apt upgrade -y && apt install mariadb-server -y
 
-WORKDIR /etc/
-
-COPY ./mariadb_conf.sh .
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 EXPOSE 3306
 

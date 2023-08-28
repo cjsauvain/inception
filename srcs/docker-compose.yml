@@ -1,20 +1,35 @@
-version: '3'
+version: "3"
 
 services:
 	nginx:
-		container_name: nginx
+		container_name: c_nginx
 		build: ./requirements/nginx/
+		image: nginx
 		env_file: .env
+		restart: always
+		volumes:
+		networks: inception
 	mariadb:
-		container_name: mariadb
+		container_name: c_mariadb
 		build: ./requirements/mariadb/
+		image: mariadb
 		env_file: .env
+		restart: always
+		volumes:
+		networks: inception
 	wordpress:
-		container_name: wordpress
+		container_name: c_wordpress
 		build: ./requirements/wordpress/
+		image: wordpress
 		env_file: .env
-	network:
-		
-network:
-
+		restart: always
+		networks: inception
+	
+networks:
+	inception:
+		driver: bridge
+	
 volumes:
+	v_wordpress:
+
+	v_mariadb:
