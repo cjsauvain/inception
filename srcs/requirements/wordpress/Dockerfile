@@ -1,18 +1,19 @@
 FROM debian:bullseye-slim
 
-RUN apt update -y && apt upgrade -y && cd /tmp\
+RUN apt update -y && apt upgrade -y && apt install curl tar sed php php-fpm php-mysql\
+													mariadb-client -y\
+									&& cd /tmp\
 									&& curl -LO https://wordpress.org/latest.tar.gz\
 									&& tar xzvf latest.tar.gz\
 									&& cp ./wordpress/wp-config-sample.php ./wordpress/wp-config.php\
-									&& cp -a ./wordpress/. /var/www/wordpress \
+									&& mkdir -p /var/www/\
+									&& cp ./wordpress /var/www/ -R\
 									&& chown -R www-data:www-data /var/www/wordpress\
-									&& apt install php php-fpm php-mysql mariadb-client -y\
-									&& sed -i -r "s/.*DB_NAME.*/define( 'DB_NAME', 'wordpress' )/g" wp-config.php\
-									&& sed -i -r "s/.*DB_USER.*/define( 'DB_USER', 'champi' )/g" wp-config.php\
-									&& sed -i -r "s/.*DB_PASSWORD.*/define( 'DB_PASSWORD', 'Bonjour456-' )/g" wp-config.php\
+									&& sed -i -e "s/database_name_here/${SQL_DATABASE}/g"\
+												-e "s/username_here/${SQL_USER}/g"\
+												-e "s/password_here/${SQL_PASSWORD}/g"\
+												-e "s/localhost/mariadb/g" wordpress/wp-config.php
 
 COPY ./conf/www.conf /etc/php/8.1/fpm/pool.d/www.conf
 
-EXPOSE 9000
-
-ENTRYPOINT ["systemctl", "start", "php$(php --version | awk '{print $2}' | awk 'NR==1' | head -c 3)-fpm"]
+ENTRYPOINT ["php$(php --version | awk '{print $2}' | awk 'NR==1' | head -c 3)-fpm"]
