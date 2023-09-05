@@ -2,13 +2,13 @@ version: "3"
 
 services:
     nginx:
-        container_name: c_nginx
-        build: ./requirements/nginx/
+        container_name: nginx
         image: nginx
+        build: ./requirements/nginx/
         env_file: .env
         restart: always
         volumes:
-            - v_wordpress:/var/www/wordpress
+            - wordpress:/var/www/wordpress
         networks:
             - inception
         ports:
@@ -17,28 +17,28 @@ services:
             - wordpress
 
     mariadb:
-        container_name: c_mariadb
-        build: ./requirements/mariadb/
+        container_name: mariadb
         image: mariadb
+        build: ./requirements/mariadb/
         env_file: .env
         restart: always
         expose:
             - "3306"
         volumes:
-            - v_mariadb:/var/lib/mysql
+            - mariadb:/var/lib/mysql
         networks:
             - inception
 
     wordpress:
-        container_name: c_wordpress
-        build: ./requirements/wordpress/
+        container_name: wordpress
         image: wordpress
+        build: ./requirements/wordpress/
         env_file: .env
         restart: always
         expose:
             - "9000"
         volumes:
-            - v_wordpress:/var/www/wordpress
+            - wordpress:/var/www/wordpress
         networks:
             - inception
         depends_on:
@@ -49,13 +49,13 @@ networks:
         driver: bridge
     
 volumes:
-    v_wordpress:
+    wordpress:
         driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
             device: '/home/champi/data/wordpress'
-    v_mariadb:
+    mariadb:
         driver: local
         driver_opts:
             type: 'none'
