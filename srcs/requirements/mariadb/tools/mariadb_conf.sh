@@ -1,15 +1,15 @@
 if [ ! -d "/var/lib/mysql/$SQL_DATABASE" ]; then
 
 service mariadb start
-#mysql_secure_installation << EOF
-#y
-#$SQL_ROOT_PASSWORD
-#$SQL_ROOT_PASSWORD
-#y
-#y
-#y
-#y
-#EOF
+mysql_secure_installation << EOF
+$SQL_ROOT_PASSWORD
+Y
+n
+Y
+Y
+Y
+Y
+EOF
 
 mysql -e "CREATE DATABASE IF NOT EXISTS $SQL_DATABASE;"
 mysql -e "CREATE USER IF NOT EXISTS $SQL_USER@'localhost' IDENTIFIED BY '$SQL_PASSWORD';"

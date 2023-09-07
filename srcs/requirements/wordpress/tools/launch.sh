@@ -1,12 +1,27 @@
-if [ -d /var/www/wordpress ]; then
+sleep 5
 
-sed -i "s/votre_nom_de_bdd/$SQL_DATABASE/g" wordpress/wp-config.php
+if [ ! -e /var/www/wordpress/wp-config.php ]; then
 
-sed -i "s/votre_utilisateur_de_bdd/$SQL_USER/g" wordpress/wp-config.php
+wp config create	--allow-root \
+					--dbname=$SQL_DATABASE \
+					--dbuser=$SQL_USER \
+					--dbpass=$SQL_PASSWORD \
+					--dbhost=mariadb:3306 \
+					--path='/var/www/wordpress'
 
-sed -i "s/votre_mdp_de_bdd/$SQL_PASSWORD/g" wordpress/wp-config.php
+wp core install	--allow-root \
+				--url=$DOMAIN_NAME\
+				--admin_user=$ADMIN_LOGIN \
+				--admin_password=$ADMIN_PASS \
+				--admin_email=$ADMIN_EMAIL \
+				--title=$SITE_TITLE \
+				--path='/var/www/wordpress'
 
-sed -i "s/localhost/mariadb/g" wordpress/wp-config.php
+wp user create	$USER_LOGIN $USER_EMAIL \
+				--allow-root \
+				--user_pass=$USER_PASS \
+				--role=author \
+				--path='/var/www/wordpress'
 
 fi
 
