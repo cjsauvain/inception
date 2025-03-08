@@ -15,7 +15,7 @@ The containers are configured to communicate with each other using **Docker netw
 
 ---
 
-## 🛠️ How to Run the Project
+## 🛠️ Setup
 
 Follow the steps below to set up the infrastructure on your local machine:
 
