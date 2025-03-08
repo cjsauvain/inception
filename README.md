@@ -17,19 +17,11 @@ The containers are configured to communicate with each other using **Docker netw
 
 ## 🛠️ Setup
 
-Follow the steps below to set up the infrastructure on your local machine:
-
-1. **Clone the repository**:
     ```bash
     git clone https://github.com/cjsauvain/inception.git
     cd inception
-    ```
-
-2. **Build and start the Docker containers**:
-    ```bash
     make
     ```
-
-3. **Access WordPress**:  
+    
    Open your web browser and visit `http://localhost:9000`.
    
