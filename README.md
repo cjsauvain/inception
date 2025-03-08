@@ -2,15 +2,6 @@
 ## Infrastructure Setup with Nginx, MariaDB, and WordPress  
 
 This repository contains the setup of a simple infrastructure using **Docker** to deploy **Nginx**, **MariaDB**, and **WordPress**.  
-
----
-
-## Project Goal
-The goal of this project is to set up a **web infrastructure** using the following services (one container for each service) :
-- **Nginx** as the web server
-- **MariaDB** as the database server
-- **WordPress** as the content management system (CMS)
-
 The containers are configured to communicate with each other using **Docker networks**.
 
 ---
