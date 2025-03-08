@@ -1,11 +1,11 @@
-# 🌍 Project: Inception  
+# Inception  
 ## Infrastructure Setup with Nginx, MariaDB, and WordPress  
 
 This repository contains the setup of a simple infrastructure using **Docker** to deploy **Nginx**, **MariaDB**, and **WordPress**.  
 
 ---
 
-## 🎯 Project Objective
+## Project Objective
 The goal of this project is to set up a **web infrastructure** using the following services (one container for each service) :
 - **Nginx** as the web server
 - **MariaDB** as the database server
@@ -20,7 +20,6 @@ The containers are configured to communicate with each other using **Docker netw
     ```bash
     git clone https://github.com/cjsauvain/inception.git
     cd inception
-    make  
     ```
     
    Open your web browser and visit `http://localhost:9000`.
