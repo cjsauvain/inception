@@ -20,7 +20,7 @@ The containers are configured to communicate with each other using **Docker netw
     ```bash
     git clone https://github.com/cjsauvain/inception.git
     cd inception
-    make
+    make  
     ```
     
    Open your web browser and visit `http://localhost:9000`.
