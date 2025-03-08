@@ -5,7 +5,7 @@ This repository contains the setup of a simple infrastructure using **Docker** t
 
 ---
 
-## Project Objective
+## Project Goal
 The goal of this project is to set up a **web infrastructure** using the following services (one container for each service) :
 - **Nginx** as the web server
 - **MariaDB** as the database server
