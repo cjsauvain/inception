@@ -32,6 +32,4 @@ Follow the steps below to set up the infrastructure on your local machine:
 
 3. **Access WordPress**:  
    Open your web browser and visit `http://localhost:9000`.
-
-## 📂 File Structure
-
+   
