@@ -1,5 +1,5 @@
 # Inception  
-## Infrastructure Setup with Nginx, MariaDB, and WordPress  
+## <p style="color:red;">Infrastructure Setup with Nginx, MariaDB, and WordPress  </p>
 
 This repository contains the setup of a simple infrastructure using **Docker** to deploy **Nginx**, **MariaDB**, and **WordPress**.  
 
