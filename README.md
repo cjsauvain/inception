@@ -1,11 +1,28 @@
-# Inception  
-## Infrastructure Setup with Nginx, MariaDB, and WordPress  
+# Inception
 
-This repository contains the setup of a simple infrastructure using **Docker** to deploy **Nginx**, **MariaDB**, and **WordPress**. 
+> Projet réalisé dans le cadre du cursus de l’école 42.  
 
-The containers are configured to communicate with each other using **Docker networks**.
+## 📌 Objectifs
 
----
+> L’objectif est de concevoir une **infrastructure de services Dockerisés** avec Docker Compose.
+
+## 🧱 Services à mettre en place
+
+| Service     | Description                                                        |
+|-------------|--------------------------------------------------------------------|
+| **Nginx**   | Serveur proxy inverse, HTTPS via certificat TLS                    |
+| **WordPress** | Application web CMS, servie via PHP-FPM                          |
+| **MariaDB** | Base de données MySQL-compatible                                   |
+
+## ⚙️ Technologies utilisées
+
+- Docker (Dockerfile)
+- Docker Compose
+- Debian Linux (images légères)
+- Nginx, WordPress, MariaDB
+- OpenSSL (certificats TLS)
+- Volumes Docker
+- Réseaux bridge
 
 ## 🛠️ Setup
 
